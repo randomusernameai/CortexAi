@@ -1,0 +1,213 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uzbek call AI</title>
+
+    <!-- Основные мета-теги -->
+    <meta name="description" content="uz">
+
+    <!-- Open Graph теги для соцсетей -->
+    <meta property="og:title" content="uz">
+    <meta property="og:description" content="uz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" content="#">
+    <meta property="og:site_name" content="uz">
+
+    <!-- Twitter Card теги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="uz">
+    <meta name="twitter:description" content="uz">
+    <meta name="twitter:image" content="#">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/burgerMain.css">
+    <link rel="stylesheet" href="./css/agents.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="menuSection">
+            <div class="menuContainer">
+                <a href="index.html" class="logoText">
+                    <img src="./img/logo-header.png" style="width: 70px;" alt=""><span class="menuTextElement">cortex</span>
+                </a>
+                <a href="index.html" class="logoTextMob">
+                    <img src="./img/logo-headerMob.png" style="width: 70px;" alt=""><span class="menuTextElement">cortex</span>
+                </a>
+                <div class="burger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="menuElementOne">
+                    <ul class="menuListOne">
+                        <li><a href="./calls.html"><i class="fa-solid fa-phone" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="callHistoryButton">Call history</span></a></li>
+                        <li><a href=""><i class="fa-solid fa-comments" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="chatHistoryButton">Chat history</span></a></li>
+                        <li class="liActive"><a href="#"><i class="fa-solid fa-headset" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="agentsButton">Agents</span></a></li>
+                        <li><a href=""><i class="fa-solid fa-file" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="tariffsButton">Tariffs</span></a></li>
+                    </ul>
+                </div>
+                <div class="menuElementTwo">
+                    <ul class="menuListTwo">
+                        <li><a href="./settings.html"><i class="fa-solid fa-gear" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="settingsButton">Settings</span></a></li>
+                        <li><a href="./index.html"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="logOutButton">Log Out</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu">
+                <div class="navMob">
+                    <div class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="./calls.html">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="callHistoryButton">
+                                <i class="fa-solid fa-phone" style="margin-right: 10px;"></i>Call history
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="chatHistoryButton">
+                                <i class="fa-solid fa-comments" style="margin-right: 10px;"></i><span class="menuTextElement">Chat history
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="agentsButton">
+                                <i class="fa-solid fa-headset" style="margin-right: 10px;"></i></i><span class="menuTextElement">Agents
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="tariffsButton">
+                                <i class="fa-solid fa-file" style="margin-right: 10px;"></i><span class="menuTextElement">Tariffs
+                            </div>
+                        </a>
+                        <a href="./settings.html">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="settingsButton">
+                                <i class="fa-solid fa-gear" style="margin-right: 10px;"></i><span class="menuTextElement">Settings
+                            </div>
+                        </a>
+                        <a href="./index.html">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="logOutButton">
+                                <i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i><span class="menuTextElement">Log Out
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mainContainerr">
+        <div class="content">
+            <h1 data-i18n="agentsButton">Agents</h1>
+            <p data-i18n="hereYou">Here you can add your AI Agents with the option for incoming and outcoming calls.</p>
+            <div id="agentsTableContainer" class="agentsTableContainer" style="display: none;">
+                <div class="table-wrapper">
+                <table id="agentsTable" class="agents-table">
+                    <tbody></tbody>
+                </table>
+                </div>
+            </div>
+            <button id="openModalBtn"><img src="./img/plusButton.png" alt=""></button>
+            <p style="font-size: 20px;" data-i18n="addNewAgent">Add new agent.</p>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <p data-i18n="makeSureYou">Make sure you are entering the information correctly</p>
+            <label for="agentName" data-i18n="agentNamee">Agent Name:</label>
+            <input type="text" id="agentName" placeholder="Sevinch">
+            <div class="checkbox-group">
+                <label class="custom-checkbox">
+                    <input class="check" type="checkbox" name="callType" value="incoming">
+                    <span class="checkmark"></span><span data-i18n="incomingCall">Incoming call</span>
+                                </label>
+                                <label class="custom-checkbox">
+                    <input class="check" type="checkbox" name="callType" value="outgoing">
+                    <span class="checkmark"></span><span data-i18n="outComingCall">Outcoming call</span>
+                </label>
+                            </div>
+                            <label for="login" data-i18n="loginTitle">Login:</label>
+                            <input type="text" id="login" placeholder="Sevinch">
+                            <label for="pass" data-i18n="passTitle">Password:</label>
+                            <input type="email" id="pass" placeholder="●●●●●●●●">
+                            <div class="modal-buttons">
+                                <button id="cancelBtn" class="cancel" data-i18n="cancel">Cancel</button>
+                                <button id="saveBtn" class="save" data-i18n="save">Save</button>
+                            </div>
+                    </div>
+                </div>
+                <div id="confirmModal" class="modal-overlay" style="display: none;">
+                    <div class="modal">
+                        <h2 data-i18n="thisFuncGives">This function gives you option to edit current AI Agent’s information.</h2>
+                        <p data-i18n="afterEditingYou" style="font-weight: 600;">After editing you should wait for a short period to be verified by admin!</p>
+                        <div class="modal-buttons">
+                            <button id="confirmCancelBtn" class="cancel" data-i18n="cancel">Cancel</button>
+                            <button id="confirmProceedBtn" class="save" data-i18n="edit">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Модальное окно №1 — Предупреждение -->
+                <div id="deleteWarningModal" class="modal-overlay" style="display: none;">
+                    <div class="modal">
+                        <h2 data-i18n="thrThis">Through this function, you may delete current AI Agent from Agent list.</h2>
+                        <p data-i18n="areYouGoing">Are you going to delete this AI Agent from the list? Or you can pause it till you want to use it.</p>
+                        <div class="modal-buttons">
+                            <button id="cancelDeleteWarning" class="cancel" data-i18n="iWillPause">I will pause</button>
+                            <button id="proceedToConfirmDelete" class="save" data-i18n="yesIAm">Yes, I am</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Модальное окно №2 — Подтверждение с чекбоксом -->
+                <div id="deleteConfirmModal" class="modal-overlay" style="display: none;">
+                    <div class="modal">
+                        <h2 data-i18n="okItReminds">Ok, it reminds that you can’t recover this AI Agent again, and make a sure you do delete it!</h2>
+                        <label style="display: block; margin: 10px 0;">
+        <input type="checkbox" id="finalDeleteCheckbox" style="height: 15px;">
+        <span data-i18n="iDontNeed">I don’t need this agent, so I will delete.</span>
+      </label>
+                        <div class="modal-buttons">
+                            <button id="cancelFinalDelete" class="cancel" data-i18n="cancel">Cancel</button>
+                            <button id="confirmFinalDelete" class="cancel" data-i18n="delete" disabled>Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Шаг 1: Подтверждение паузы -->
+                <div id="pauseConfirmModal" class="modal-overlay" style="display: none;">
+                    <div class="modal">
+                        <h2 data-i18n="thisPaused">This function makes your current AI Agent paused.</h2>
+                        <p data-i18n="agentCanDo">Your AI Agent can’t do any function, if it is paused.</p>
+                        <div class="modal-buttons">
+                            <button id="cancelPause" class="cancel" data-i18n="cancel">Cancel</button>
+                            <button id="confirmPause" class="save" data-i18n="pause">Pause</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Шаг 2: Сообщение на 10 секунд -->
+                <div id="pauseInfoModal" class="modal-overlay" style="display: none;">
+                    <div class="modal">
+                        <h2 data-i18n="pauseSuccess">Your AI Agent is paused successfully!</h2>
+                        <p data-i18n="ifYouWantAct">If you want to activate this agent, you should restart it and wait for a short time to be verified by admin.</p>
+                    </div>
+                </div>
+                <!-- Модальное окно для перезапуска агента (аналогичное pauseInfoModal) -->
+                <div id="restartInfoModal" class="modal-overlay" style="display: none;">
+                    <div class="modal">
+                        <h2 data-i18n="yourReqHas">Your request has been sent successfully!</h2>
+                        <p data-i18n="waitShort">Wait for a short time to be verified by admin.</p>
+                    </div>
+                </div>
+                <script src="./js/selectLanguage.js"></script>
+                <script src="./js/selectTheme.js"></script>
+                <script src="./js/burgerMenu.js"></script>
+                <script src="./js/agentsTable.js"></script>
+</body>
+
+</html>

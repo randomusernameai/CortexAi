@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uzbek call AI</title>
+
+    <!-- Основные мета-теги -->
+    <meta name="description" content="uz">
+
+    <!-- Open Graph теги для соцсетей -->
+    <meta property="og:title" content="uz">
+    <meta property="og:description" content="uz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" content="#">
+    <meta property="og:site_name" content="uz">
+
+    <!-- Twitter Card теги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="uz">
+    <meta name="twitter:description" content="uz">
+    <meta name="twitter:image" content="#">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/burgerMenu.css">
+</head>
+
+<body>
+    <header>
+        <div class="headerLogo">
+            <a class="logoText" href="#">
+                <img src="./img/logo-header.png" style="width: 50px;" alt="">cortex
+            </a>
+        </div>
+        <div class="navBar">
+            <a href="#" data-i18n="features">Features</a>
+            <a href="#" data-i18n="pricing">Pricing</a>
+            <a href="#" data-i18n="about">About</a>
+            <a href="#" data-i18n="faq">FAQ's</a>
+            <a onclick="openModal()" href="#" data-i18n="navButtonLanguage">Language</a>
+        </div>
+        <div class="headerGroup">
+            <button class="themeButton" id="themeToggle">
+            <span class="sunElement">
+                <i class="fa-solid fa-sun" style="width: 90%;"></i>
+            </span>
+            <span class="moonElement">
+                <i class="fa-regular fa-moon"></i>
+            </span>
+            </button>
+
+            <div class="logButton">
+                <a href="./register.html" data-i18n="registerTitle">Register</a>
+            </div>
+            <div class="logButton">
+                <a href="./login.html" data-i18n="loginContainerButton">Log in</a>
+            </div>
+        </div>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu">
+            <div class="navMob">
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="#">
+                        <div class="dropDown_item">
+                            <p data-i18n="features">Features</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="dropDown_item">
+                            <p data-i18n="pricing">Pricing</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="dropDown_item">
+                            <p data-i18n="about">About</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="dropDown_item">
+                            <p data-i18n="faq">FAQ's</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="openModal()">
+                        <div class="dropDown_item">
+                            <p data-i18n="navButtonLanguage">Language</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="sections">
+                <div class="section-content ">
+                    <button class="reqButtonBurger" data-i18n="buttonAccess">Access to the Cortex Ai</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div id="languageModal" class="modal">
+            <div class="modal-content">
+                <div id="languages" class="languages">
+                    <div class="language-option" data-lang="en" onclick="selectLanguage('en')">
+                        <img src="./img/eng-flag.png" alt="English">
+                        <span>English</span>
+                    </div>
+                    <div class="language-option" data-lang="uz" onclick="selectLanguage('uz')">
+                        <img src="./img/uzbek-flag.png" alt="Uzbek">
+                        <span>Uzbek</span>
+                    </div>
+                    <div class="language-option" data-lang="ru" onclick="selectLanguage('ru')">
+                        <img src="./img/rus-flag.png" alt="Russian">
+                        <span>Russian</span>
+                    </div>
+                </div>
+
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="closeModal()" data-i18n="cancel">Cancel</button>
+                    <button class="btn-save" onclick="saveLanguage()" data-i18n="save">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <h1 data-i18n="indexh1">Improve your service with smarter investments</h1>
+            <p data-i18n="indexP">Unlock the power of AI to achieve further goals.<br>Fast, reliable service to boost both quality and quantity.</p>
+            <a href="./login.html" data-i18n="buttonAccess">Access to the Cortex Ai</a>
+            <div class="infoImg">
+                <img src="./img/logo-only.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="./js/burgerMenu.js"></script>
+    <script src="./js/selectTheme.js"></script>
+    <script src="./js/selectLanguage.js"></script>
+</body>
+
+</html>

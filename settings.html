@@ -1,0 +1,219 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uzbek call AI</title>
+
+    <!-- Основные мета-теги -->
+    <meta name="description" content="uz">
+
+    <!-- Open Graph теги для соцсетей -->
+    <meta property="og:title" content="uz">
+    <meta property="og:description" content="uz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" content="#">
+    <meta property="og:site_name" content="uz">
+
+    <!-- Twitter Card теги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="uz">
+    <meta name="twitter:description" content="uz">
+    <meta name="twitter:image" content="#">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/burgerMain.css">
+    <link rel="stylesheet" href="./css/settings.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="menuSection">
+            <div class="menuContainer">
+                <a href="index.html" class="logoText">
+                    <img src="./img/logo-header.png" style="width: 70px;" alt=""><span class="menuTextElement">cortex</span>
+                </a>
+                <a href="index.html" class="logoTextMob">
+                    <img src="./img/logo-headerMob.png" style="width: 70px;" alt=""><span class="menuTextElement">cortex</span>
+                </a>
+                <div class="burger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="menuElementOne">
+                    <ul class="menuListOne">
+                        <li><a href="./calls.html"><i class="fa-solid fa-phone" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="callHistoryButton">Call history</span></a></li>
+                        <li><a href=""><i class="fa-solid fa-comments" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="chatHistoryButton">Chat history</span></a></li>
+                        <li><a href="./agents.html"><i class="fa-solid fa-headset" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="agentsButton">Agents</span></a></li>
+                        <li><a href=""><i class="fa-solid fa-file" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="tariffsButton">Tariffs</span></a></li>
+                    </ul>
+                </div>
+                <div class="menuElementTwo">
+                    <ul class="menuListTwo">
+                        <li class="liActive"><a href="#"><i class="fa-solid fa-gear" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="settingsButton">Settings</span></a></li>
+                        <li><a href="./index.html"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i><span class="menuTextElement" data-i18n="logOutButton">Log Out</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu">
+                <div class="navMob">
+                    <div class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="./calls.html">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="callHistoryButton">
+                                <i class="fa-solid fa-phone" style="margin-right: 10px;"></i>Call history
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="chatHistoryButton">
+                                <i class="fa-solid fa-comments" style="margin-right: 10px;"></i><span class="menuTextElement">Chat history
+                            </div>
+                        </a>
+                        <a href="./agents.html">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="agentsButton">
+                                <i class="fa-solid fa-headset" style="margin-right: 10px;"></i></i><span class="menuTextElement">Agents
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="tariffsButton">
+                                <i class="fa-solid fa-file" style="margin-right: 10px;"></i><span class="menuTextElement">Tariffs
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="settingsButton">
+                                <i class="fa-solid fa-gear" style="margin-right: 10px;"></i><span class="menuTextElement">Settings
+                            </div>
+                        </a>
+                        <a href="./index.html">
+                            <div class="dropDown_item" style="display: flex;" data-i18n="logOutButton">
+                                <i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i><span class="menuTextElement">Log Out
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mainContainerr">
+        <button class="themeButton" id="themeToggle">
+            <span class="sunElement">
+                <i class="fa-solid fa-sun" style="width: 90%;"></i>
+            </span>
+            <span class="moonElement">
+                <i class="fa-regular fa-moon"></i>
+            </span>
+            </button>
+        <div class="content">
+           <div class="buttonsHorSection">
+            <a id="openModalBtn" href="#" data-i18n="profDit">
+                Profile details
+            </a>
+            <a href="#" id="openThirdModalBtn" data-i18n="promptde">
+                Prompt details
+            </a>
+           </div>
+           <div class="buttonsHorSection">
+            <a href="#" id="openPassModalBtn" data-i18n="passChang">
+                Password change
+            </a>
+            <a href="#" onclick="openModal()" data-i18n="navButtonLanguage">
+                Language
+            </a>
+           </div>
+           <div class="buttonsHorSection">
+            <a href="#" id="openPassModalBtn" data-i18n="passChang">
+                Numbers details
+            </a>
+           </div>
+        </div>
+    </div>
+    <div id="thirdModalOverlay" class="modal-overlay">
+        <div class="modal" id="twoModal">
+            <h2 style="margin-bottom: 15px;" data-i18n="incomingCall">Incoming call</h2>
+            <p style="margin-bottom: 20px;" data-i18n="editincal">On this page you may enter/edit prompt for only incoming calls!</p>
+            <input type="text" id="thirdInput" placeholder="Space for text.....">
+            <div id="butGroup" class="modal-buttons">
+                <button id="cancelThirdBtn" class="cancel" data-i18n="cancel">Cancel</button>
+                <button id="saveThirdBtn" class="save" data-i18n="save">Save</button>
+            </div>
+        </div>
+        <div class="modal" id="ttwoModal">
+            <h2 style="margin-bottom: 15px;" data-i18n="outComingCall">Outcoming call</h2>
+            <p style="margin-bottom: 20px;" data-i18n="editoutcal">On this page you may enter/edit prompt for only outcoming calls!</p>
+            <input type="text" id="tthirdInput" placeholder="Space for text.....">
+            <div id="butGroup" class="modal-buttons">
+                <button id="ccancelThirdBtn" class="cancel" data-i18n="cancel">Cancel</button>
+                <button id="ssaveThirdBtn" class="save" data-i18n="save">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h2 style="margin-bottom: 10px; font-size: 30px;" data-i18n="profDit">Profile details</h2>
+            <p data-i18n="onThisPage">On this page you can change your personal information!</p>
+            <label for="changeName" data-i18n="changeName">Change your name:</label>
+            <input type="text" id="changeName" placeholder="Jack Jackson">
+            <label for="changeEmail" data-i18n="changeMail">Change email:</label>
+            <input type="text" id="changeEmail" placeholder="jackjackson43@gmail.com">
+            <label for="numb" data-i18n="changeNum">Change number:</label>
+            <input type="email" id="numb" placeholder="+998(99) 123-45-67">
+            <div class="modal-buttons">
+                <button id="saveButt" class="save" data-i18n="saveChang">Save the changes</button>
+            </div>
+        </div>
+    </div>
+    <div id="passModalOverlay" class="passModal-overlay">
+        <div class="passModal">
+            <h2 style="margin-bottom: 10px; font-size: 30px;" data-i18n="passChang">Password change</h2>
+            <p data-i18n="onThisPagee">On this page you can change your login password!</p>
+            <label for="agentName" data-i18n="curPass">Enter your current password:</label>
+            <input type="text" id="agentName" placeholder="p24fkt1q">
+            <label for="login" data-i18n="newPass">Enter new password:</label>
+            <input type="text" id="login" placeholder="●●●●●●●●">
+            <label for="pass" data-i18n="newPassTwo">Enter new password again:</label>
+            <input type="email" id="pass" placeholder="●●●●●●●●">
+            <div class="modal-buttons">
+                <button id="changePassBtn" class="save" data-i18n="changPass">Change the password</button>
+            </div>
+        </div>
+    </div>
+    <div id="languageModal" class="modallang">
+        <div class="modallang-content">
+            <div id="languages" class="languages">
+                <div class="language-option" data-lang="en" onclick="selectLanguage('en')">
+                    <img src="./img/eng-flag.png" alt="English">
+                    <span>English</span>
+                </div>
+                <div class="language-option" data-lang="uz" onclick="selectLanguage('uz')">
+                    <img src="./img/uzbek-flag.png" alt="Uzbek">
+                    <span>Uzbek</span>
+                </div>
+                <div class="language-option" data-lang="ru" onclick="selectLanguage('ru')">
+                    <img src="./img/rus-flag.png" alt="Russian">
+                    <span>Russian</span>
+                </div>
+            </div>
+            <div class="modallang-buttons">
+                <button class="btn-cancel" onclick="closeModal()" data-i18n="cancel">Cancel</button>
+                <button class="btn-save" onclick="saveLanguage()" data-i18n="save">Save</button>
+            </div>
+        </div>
+    </div>
+<script src="./js/selectLanguage.js"></script>
+<script src="./js/selectTheme.js"></script>
+<script src="./js/burgerMenu.js"></script>
+<script src="./js/settingModals.js"></script>
+
+    
+    
+</body>
+
+</html>

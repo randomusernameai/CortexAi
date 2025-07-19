@@ -1,0 +1,158 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uzbek call AI</title>
+    <!-- Basic Meta Tags -->
+    <meta name="description" content="uz">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="uz">
+    <meta property="og:description" content="uz">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="uz">
+    <meta name="twitter:description" content="uz">
+
+    <!-- Favicon and CSS -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="./css/burgerMain.css">
+    <link rel="stylesheet" href="./css/calls.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="menuSection">
+            <div class="menuContainer">
+                <a href="index.html" class="logoText">
+                    <img src="./img/logo-header.png" style="width: 70px;" alt="">
+                    <span class="menuTextElement">cortex</span>
+                </a>
+                <a href="index.html" class="logoTextMob">
+                    <img src="./img/logo-headerMob.png" style="width: 70px;" alt="">
+                    <span class="menuTextElement">cortex</span>
+                </a>
+                <div class="burger" onclick="toggleMenu()">
+                    <div></div><div></div><div></div>
+                </div>
+                <div class="menuElementOne">
+                    <ul class="menuListOne">
+                        <li class="liActive"><a href="#"><i class="fa-solid fa-phone"></i><span data-i18n="callHistoryButton">Call history</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-comments"></i><span data-i18n="chatHistoryButton">Chat history</span></a></li>
+                        <li><a href="./agents.html"><i class="fa-solid fa-headset"></i><span data-i18n="agentsButton">Agents</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-file"></i><span data-i18n="tariffsButton">Tariffs</span></a></li>
+                    </ul>
+                </div>
+                <div class="menuElementTwo">
+                    <ul class="menuListTwo">
+                        <li><a href="./settings.html"><i class="fa-solid fa-gear"></i><span data-i18n="settingsButton">Settings</span></a></li>
+                        <li><a href="./index.html"><i class="fa-solid fa-right-from-bracket"></i><span data-i18n="logOutButton">Log Out</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="mainContainer">
+                <div class="containerOne">
+                    <div class="callsInfo">
+                        <p data-i18n="totalNumbarOfCalls">Total number of calls:</p>
+                        <h1><img src="./img/two-arrows.png" width="20px"> <span id="totalCalls">...</span></h1>
+
+                        <p data-i18n="incomingCalls">Incoming calls:</p>
+                        <h1><img src="./img/orange-arrow.png" width="25px"> <span id="incomingCalls">...</span></h1>
+
+                        <p data-i18n="outcomingCalls">Outcoming calls:</p>
+                        <h1><img src="./img/violet-arrow.png" width="25px"> <span id="outgoingCalls">...</span></h1>
+                    </div>
+
+                    <div class="tariffInfo">
+                        <div class="tariffName">
+                            <p data-i18n="tariff">Tariff:</p>
+                            <h1 id="tariffName">...</h1>
+                        </div>
+                        <div class="tariffPay">
+                            <p data-i18n="balance">Balance:</p>
+                            <h1 id="balanceMinutes">...</h1>
+
+                            <p data-i18n="nextPaymentDate">Next payment date:<span style="color: #FF4F0F">*</span></p>
+                            <h1 id="nextPaymentDate">...</h1>
+
+                            <p data-i18n="nextPaymentAmount">Next payment amount:</p>
+                            <h1 id="nextPaymentAmount">...</h1>
+                        </div>
+                    </div>
+
+                    <div class="chartInfo">
+                        <img src="./img/chart.png" alt="Call chart">
+                    </div>
+                </div>
+
+                <div class="containerTwo">
+                    <div class="table-wrapper">
+                        <table id="callTable">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th><img src="./img/two-arrows.png" width="15px"></th>
+                                    <th data-i18n="idNumber">ID number</th>
+                                    <th data-i18n="nameAndSurname">Name and surname</th>
+                                    <th data-i18n="phoneTitle">Phone number</th>
+                                    <th data-i18n="dateAndTime">Date and time</th>
+                                    <th data-i18n="callDuration">Call duration</th>
+                                    <th data-i18n="costValue">Cost</th>
+                                    <th data-i18n="interested">Interested</th>
+                                    <th data-i18n="recCall">Recorded call</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <div id="pageButtons"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/selectLanguage.js"></script>
+    <script src="./js/selectTheme.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+    <script src="./js/callTable.js"></script>
+    <script>
+        // Call immediately when the page DOM is loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            await fetchUserStatistics();
+        });
+
+        async function fetchUserStatistics() {
+            try {
+                const response = await secureFetch('/api/user/statistics');
+                if (!response.ok) {
+                    alert('Failed to fetch user statistics');
+                    return;
+                }
+                const data = await response.json();
+
+                document.getElementById('totalCalls').textContent = data.total_calls;
+                document.getElementById('incomingCalls').textContent = data.incoming_calls;
+                document.getElementById('outgoingCalls').textContent = data.outgoing_calls;
+                document.getElementById('tariffName').innerHTML = data.tariff.replace(/\n/g, '<br>');
+                document.getElementById('balanceMinutes').textContent = data.balance_minutes;
+                document.getElementById('nextPaymentDate').textContent = data.next_payment_date;
+                document.getElementById('nextPaymentAmount').textContent = data.next_payment_amount;
+            } catch (error) {
+                console.error('Error fetching statistics:', error);
+            }
+        }
+    </script>
+</body>
+</html>

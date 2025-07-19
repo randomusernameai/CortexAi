@@ -1,0 +1,154 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uzbek call AI</title>
+
+    <!-- Основные мета-теги -->
+    <meta name="description" content="uz">
+
+    <!-- Open Graph теги для соцсетей -->
+    <meta property="og:title" content="uz">
+    <meta property="og:description" content="uz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" content="#">
+    <meta property="og:site_name" content="uz">
+
+    <!-- Twitter Card теги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="uz">
+    <meta name="twitter:description" content="uz">
+    <meta name="twitter:image" content="#">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/burgerMenu.css">
+</head>
+
+<body>
+    <header>
+        <div class="headerLogo">
+            <a href="index.html" class="logoText">
+                <img src="./img/logo-header.png" style="width: 50px;" alt="">cortex
+            </a>
+        </div>
+        <div class="navBar">
+            <a href="index.html" data-i18n="navButtonMainPage">Main Page</a>
+            <a onclick="openModal()" href="#" data-i18n="navButtonLanguage">Language</a>
+            <a href="#" data-i18n="navButtonContactUs">Contact us</a>
+        </div>
+        <div class="headerGroup">
+            <button class="themeButton" id="themeToggle">
+                <span class="sunElement">
+                    <i class="fa-solid fa-sun"></i>
+                </span>
+                <span class="moonElement">
+                    <i class="fa-regular fa-moon"></i>
+                </span>
+            </button>
+        </div>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu">
+            <div class="navMob">
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="#">
+                        <div class="dropDown_item">
+                            <p data-i18n="navButtonMainPage">Main Page</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="openModal()">
+                        <div class="dropDown_item">
+                            <p data-i18n="navButtonLanguage">Language</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="dropDown_item">
+                            <p data-i18n="navButtonContactUs">Contact us</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="sections">
+                <div class="section-content ">
+                    <button class="reqButtonBurger" data-i18n="buttonAccess">Access to the Cortex Ai</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div id="languageModal" class="modal">
+            <div class="modal-content">
+                <div id="languages" class="languages">
+                    <div class="language-option" data-lang="en" onclick="selectLanguage('en')">
+                        <img src="./img/eng-flag.png" alt="English">
+                        <span>English</span>
+                    </div>
+                    <div class="language-option" data-lang="uz" onclick="selectLanguage('uz')">
+                        <img src="./img/uzbek-flag.png" alt="Uzbek">
+                        <span>Uzbek</span>
+                    </div>
+                    <div class="language-option" data-lang="ru" onclick="selectLanguage('ru')">
+                        <img src="./img/rus-flag.png" alt="Russian">
+                        <span>Russian</span>
+                    </div>
+                </div>
+
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="closeModal()" data-i18n="cancel">Cancel</button>
+                    <button class="btn-save" onclick="saveLanguage()" data-i18n="save">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="firstSection">
+                <h1 data-i18n="title">Fast, Productive and Efficient</h1>
+                <p data-i18n="description">Log in to continue your journey with Cortex AI and make your work easier than ever</p>
+            </div>
+            <div class="twoSection">
+                <div class="loginContainer">
+                    <h1 data-i18n="registerTitle">Register</h1>
+                    <div class="loginInput">
+                        <label for="user-login" data-i18n="fullName">Full Name:</label>
+                        <input type="text" placeholder="Jack Jackson" id="user-login">
+                    </div>
+                    <div class="loginInput">
+                        <label for="user-pass" data-i18n="emailTitle">E-mail:</label>
+                        <input type="text" placeholder="jacjackson43@gmail.com" id="user-pass">
+                    </div>
+                    <div class="loginInput">
+                        <label for="user-pass" data-i18n="phoneTitle">Phone number:</label>
+                        <input type="text" placeholder="+998(99) 123-45-67" id="user-pass">
+                    </div>
+                    <div class="loginInput">
+                        <label for="user-pass" data-i18n="createPassTitle">Create password:</label>
+                        <input type="text" placeholder="p24fkt1q" id="user-pass">
+                    </div>
+                    <div class="loginInput">
+                        <label for="user-pass" data-i18n="createPassTitleTwo">Enter password again:</label>
+                        <input type="text" placeholder="●●●●●●●●" id="user-pass">
+                    </div>
+                    <a href="./login.html"><button class="submit" id="submit" type="submit" data-i18n="registerContainerButton">Register!</button></a>
+                </div>
+            </div>
+        </div>
+        <a href="./index.html"><i class="fa-solid fa-arrow-left-long"></i></a>
+    </div>
+    <script src="./js/register.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+    <script src="./js/selectTheme.js"></script>
+    <script src="./js/selectLanguage.js"></script>
+</body>
+
+</html>
